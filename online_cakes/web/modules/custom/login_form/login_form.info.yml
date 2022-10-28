@@ -1,0 +1,4 @@
+name: Simple Custom Login
+type: module
+description: Module for implementing custom form for login.
+core_version_requirement: ^8.8 || ^9

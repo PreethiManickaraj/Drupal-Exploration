@@ -1,0 +1,4 @@
+name: User Registration Form
+description: This is a form used to register the user with details.
+type: module
+core_version_requirement: ^8 || ^9

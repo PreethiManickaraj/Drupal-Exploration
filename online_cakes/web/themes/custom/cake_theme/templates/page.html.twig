@@ -1,0 +1,25 @@
+<header aria-label="Site header" class="header" id="header">
+     {{ page.branding }}
+     {{ page.navigation }}
+</header>
+<section class="featured" id="featured">
+   {{ page.featured }}
+</section>
+<section class="main" id="main">
+   <main aria-label="Site main content" class="content" id="content">
+     {{ page.content }}
+   </main>
+   <aside class="right--sidebar" id="sidebar">
+     {{ page.right_sidebar }}
+   </aside>
+</section>
+<footer aria-label="Site footer" class="footer" id="footer">
+   <div class="footer--top">
+     {{ page.footer_first }}
+     {{ page.footer_second }}
+     {{ page.footer_third }}
+   </div>
+   <div class="footer--bottom">
+       {{ page.footer_bottom }}
+   </div>
+</footer>
