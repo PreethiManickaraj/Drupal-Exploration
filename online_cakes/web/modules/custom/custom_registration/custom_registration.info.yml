@@ -1,0 +1,6 @@
+name: 'Custom Registration'
+type: module
+description: 'Custom module for registration'
+core_version_requirement: ^8.8 || ^9
+package: 'Custom'
+
