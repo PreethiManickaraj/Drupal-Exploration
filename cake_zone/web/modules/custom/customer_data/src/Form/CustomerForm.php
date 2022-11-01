@@ -1,0 +1,89 @@
+<?php
+
+namespace Drupal\customer_data\Form;
+
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Url;
+use Drupal\Core\Routing;
+
+class CustomerForm extends FormBase {
+
+  public function getFormId() {
+    return 'customer_data_form';
+  }
+
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    
+    $form['fname'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('First Name'),
+      '#required' => TRUE,
+      '#maxlength' => 20,
+      '#default_value' =>  '',
+    ];
+	 $form['sname'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Second Name'),
+      '#required' => TRUE,
+      '#maxlength' => 20,
+      '#default_value' =>  '',
+    ];
+	$form['age'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Age'),
+      '#required' => TRUE,
+      '#maxlength' => 20,
+      '#default_value' => '',
+    ];
+	 $form['mobile'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Mobile'),
+      '#required' => TRUE,
+      '#maxlength' => 20,
+      '#default_value' => '',
+    ];
+	
+    $form['actions']['#type'] = 'actions';
+    $form['actions']['submit'] = [
+      '#type' => 'submit',
+      '#button_type' => 'primary',
+      '#default_value' => $this->t('Save') ,
+    ];
+
+    return $form;
+
+  }
+  
+  public function validateForm(array & $form, FormStateInterface $form_state) {
+       $field = $form_state->getValues();
+	   
+		$fields["fname"] = $field['fname'];
+		if (!$form_state->getValue('fname') || empty($form_state->getValue('fname'))) {
+            $form_state->setErrorByName('fname', $this->t('Provide First Name'));
+        }
+		
+		
+  }
+
+  public function submitForm(array & $form, FormStateInterface $form_state) {
+	try{
+		$conn = Database::getConnection();
+		
+		$field = $form_state->getValues();
+	   
+		$fields["fname"] = $field['fname'];
+		$fields["sname"] = $field['sname'];
+		$fields["age"] = $field['age'];
+		$fields["mobile"] = $field['mobile'];
+		
+		  $conn->insert('customers')
+			   ->fields($fields)->execute();
+		  \Drupal::messenger()->addMessage($this->t('The Student data has been succesfully saved'));
+		 
+	} catch(Exception $ex){
+		\Drupal::logger('customer_data')->error($ex->getMessage());
+	}  
+  }
+}

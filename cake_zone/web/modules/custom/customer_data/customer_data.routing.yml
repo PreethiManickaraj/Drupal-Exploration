@@ -1,0 +1,7 @@
+customer_data.add_customer:
+  path: '/customers/add'
+  defaults:
+    _title: 'Add Customers'
+    _form: '\Drupal\customer_data\Form\CustomerForm'
+  requirements:
+    _access: 'TRUE'
