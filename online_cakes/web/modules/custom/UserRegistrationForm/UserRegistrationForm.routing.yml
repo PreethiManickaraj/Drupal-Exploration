@@ -1,7 +1,0 @@
-UserRegistrationForm.form:
-  path: '/user/registration'
-  defaults:
-    _form: 'Drupal\UserRegistrationForm\src\Form\UserRegistrationForm'
-    _title: 'Welcome to the User Registration Form.'
-  requirements:
-    _permission: 'access content'
