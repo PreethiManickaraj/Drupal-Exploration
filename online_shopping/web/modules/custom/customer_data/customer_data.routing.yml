@@ -1,0 +1,15 @@
+customer_data.add_customer:
+  path: '/customers/add'
+  defaults:
+    _title: 'Add Customers'
+    _form: '\Drupal\customer_data\Form\CustomerForm'
+  requirements:
+    _access: 'TRUE'
+
+customer_data.getdetails:
+ path: '/customer_data/getdetails'
+ defaults:
+   _title: 'Fetch detail of Customers'
+   _controller: '\Drupal\customer_data\Controller\CustomerDetailsController::getDetails'
+ requirements:
+   _permission: 'access content'

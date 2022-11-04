@@ -1,0 +1,8 @@
+name: Login
+type: theme
+base theme: bootstrap
+core_version_requirement: ^8.8.0 || ^9 || ^10
+
+libraries-override:
+    css:
+      
