@@ -25,11 +25,21 @@ class CustomerDetailsController extends ControllerBase {
   }
  
   public function getDetails() {
-  //fetch data from employee table.
-  $db = \Drupal::database(); 
-  $query = $db->select('customers', 'n'); 
-  $query->fields('n'); 
-  $response = $query->execute()->fetchAll();
-    return new JsonResponse( $response );
+
+    $result = \Drupal::database()->select('customers', 'n')
+              ->fields('n', array('id', 'fname', 'sname', 'age', 'marks'))
+              ->execute()->fetchAllAssoc('id');
+      $rows = array();
+      foreach ($result as $row => $content) {
+        $rows[] = array(
+          'data' => array($content->id, $content->fname, $content->sname, $content->age, $content->marks));
+      }
+      $header = array('Id', 'First name', 'Second name', 'Age', 'Marks');
+      $output = array(
+        '#theme' => 'table',   
+        '#header' => $header,
+        '#rows' => $rows
+      );
+      return $output;
   }
 }

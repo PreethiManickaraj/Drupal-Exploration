@@ -7,9 +7,9 @@ customer_data.add_customer:
     _access: 'TRUE'
 
 customer_data.getdetails:
- path: '/customer_data/getdetails'
+ path: '/customers/getdetails'
  defaults:
-   _title: 'Fetch detail of Customers'
+   _title: 'Fetch details of Customers'
    _controller: '\Drupal\customer_data\Controller\CustomerDetailsController::getDetails'
  requirements:
    _permission: 'access content'
