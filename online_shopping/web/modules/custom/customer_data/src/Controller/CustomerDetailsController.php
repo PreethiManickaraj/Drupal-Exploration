@@ -36,7 +36,7 @@ class CustomerDetailsController extends ControllerBase {
       }
       $header = array('Id', 'First name', 'Second name', 'Age', 'Marks');
       $output = array(
-        '#theme' => 'table',   
+        '#theme' => 'grid',   
         '#header' => $header,
         '#rows' => $rows
       );

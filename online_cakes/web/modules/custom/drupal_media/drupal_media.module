@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Simple Youtube hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function drupal_media_theme() {
+  return array(
+    'drupal_media_video_formatter' => array(
+      'variables' => array('width' => 600, 'height' => 450, 'video_id' => NULL),
+    ),
+  );
+}
