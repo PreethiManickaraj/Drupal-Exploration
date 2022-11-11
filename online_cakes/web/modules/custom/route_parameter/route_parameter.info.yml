@@ -1,0 +1,5 @@
+name: Route Parameter
+type: module
+description: Routing with parameters
+core_version_requirement: ^8 || ^9
+package: Custom

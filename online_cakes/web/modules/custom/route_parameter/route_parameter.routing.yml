@@ -1,0 +1,11 @@
+route_parameter.display_node:
+  path: '/display-node/{node}'
+  defaults:
+    _controller: '\Drupal\route_parameter\Controller\DisplayNode::content'
+    _title_callback: '\Drupal\route_parameter\Controller\DisplayNode::getTitle'
+  requirements:
+    _custom_access: '\Drupal\route_parameter\Controller\DisplayNode::access'
+  options:
+    parameters:
+      node:
+        type: entity:node
